@@ -112,7 +112,6 @@ export default function CharactersPage() {
             <header className="topbar">
                 <div>
                     <h1>Personnages</h1>
-                    <p className="muted">Orange & Noir — rapide à gérer, facile à partager.</p>
                 </div>
             </header>
 
