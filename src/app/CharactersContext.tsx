@@ -36,7 +36,7 @@ function uid() {
     return Math.random().toString(36).slice(2) + Date.now().toString(36);
 }
 
-const ALL_KEYS = new Set(ALL_STATS.map((s) => s.key));
+const ALL_KEYS = new Set<StatKey>(ALL_STATS.map((s) => s.key));
 
 function isObject(x: unknown): x is Record<string, unknown> {
     return typeof x === "object" && x !== null && !Array.isArray(x);
@@ -57,7 +57,7 @@ function normalizeCharacter(raw: unknown, mode: "new" | "replace"): ImportResult
         if (isObject(statsIn)) {
             const next = { ...empty };
             for (const [k, v] of Object.entries(statsIn)) {
-                if (ALL_KEYS.has(k)) {
+                if (ALL_KEYS.has(k as StatKey)) {
                     next[k as StatKey] = clamp(Number(v ?? 0), 0, 5);
                 }
             }
