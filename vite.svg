@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+    <defs>
+        <!-- Background -->
+        <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(170 130) rotate(55) scale(420 420)">
+            <stop stop-color="#1A1A22"/>
+            <stop offset="0.55" stop-color="#0B0C10"/>
+            <stop offset="1" stop-color="#07070A"/>
+        </radialGradient>
+
+        <!-- Orange glow -->
+        <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(190 150) rotate(55) scale(260 260)">
+            <stop stop-color="#FF9A3C" stop-opacity="0.55"/>
+            <stop offset="0.65" stop-color="#FF7A18" stop-opacity="0.10"/>
+            <stop offset="1" stop-color="#FF7A18" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Dice body -->
+        <linearGradient id="dice" x1="140" y1="120" x2="390" y2="390" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF9A3C"/>
+            <stop offset="0.55" stop-color="#FF7A18"/>
+            <stop offset="1" stop-color="#D85B00"/>
+        </linearGradient>
+
+        <!-- Dice shade -->
+        <linearGradient id="shade" x1="150" y1="130" x2="365" y2="360" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white" stop-opacity="0.30"/>
+            <stop offset="0.55" stop-color="white" stop-opacity="0.06"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+
+        <!-- Stroke -->
+        <linearGradient id="stroke" x1="160" y1="130" x2="380" y2="390" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="white" stop-opacity="0.16"/>
+        </linearGradient>
+
+        <!-- Soft shadow -->
+        <filter id="shadow" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse">
+            <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#000000" flood-opacity="0.55"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#FF7A18" flood-opacity="0.18"/>
+        </filter>
+
+        <!-- Spark glow -->
+        <filter id="spark" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse">
+            <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FF9A3C" flood-opacity="0.55"/>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <rect x="0" y="0" width="512" height="512" rx="120" fill="url(#bg)"/>
+    <rect x="0" y="0" width="512" height="512" rx="120" fill="url(#glow)"/>
+
+    <!-- D10 Dice -->
+    <g filter="url(#shadow)">
+        <!-- Outer -->
+        <path d="M256 78 L382 164 L410 310 L256 434 L102 310 L130 164 Z"
+              fill="url(#dice)" stroke="url(#stroke)" stroke-width="10" stroke-linejoin="round"/>
+
+        <!-- Facets -->
+        <path d="M256 78 L130 164 L256 234 Z" fill="rgba(255,255,255,0.18)"/>
+        <path d="M256 78 L382 164 L256 234 Z" fill="rgba(0,0,0,0.12)"/>
+        <path d="M130 164 L102 310 L256 234 Z" fill="rgba(0,0,0,0.10)"/>
+        <path d="M382 164 L410 310 L256 234 Z" fill="rgba(255,255,255,0.10)"/>
+        <path d="M102 310 L256 434 L256 234 Z" fill="rgba(255,255,255,0.10)"/>
+        <path d="M410 310 L256 434 L256 234 Z" fill="rgba(0,0,0,0.10)"/>
+
+        <!-- Highlight -->
+        <path d="M256 96 L360 168 L374 286 L256 400 L138 286 L152 168 Z" fill="url(#shade)"/>
+
+        <!-- Inner edges -->
+        <path d="M256 78 L256 234 M130 164 L256 234 M382 164 L256 234 M102 310 L256 234 M410 310 L256 234"
+              stroke="rgba(255,255,255,0.22)" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Number "10" -->
+    <g>
+        <rect x="176" y="214" width="160" height="104" rx="28"
+              fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.18)" stroke-width="4"/>
+        <text x="256" y="290"
+              font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+              font-size="78" font-weight="900"
+              text-anchor="middle" fill="#F4F5F7"
+              style="paint-order:stroke; stroke: rgba(0,0,0,0.35); stroke-width: 10;">
+            10
+        </text>
+    </g>
+
+    <!-- Spark / accent -->
+    <g filter="url(#spark)">
+        <path d="M392 132 L404 160 L434 172 L404 184 L392 212 L380 184 L350 172 L380 160 Z"
+              fill="#FF9A3C"/>
+        <path d="M420 220 L426 236 L442 242 L426 248 L420 264 L414 248 L398 242 L414 236 Z"
+              fill="#FF7A18" opacity="0.9"/>
+    </g>
+</svg>
